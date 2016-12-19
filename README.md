@@ -8,7 +8,7 @@ You can add `--save` as a parameter if you want to add the plugin into your `pac
 
 ## Usage
 ### HTML
-Have a look at [codepen](https://codepen.io/devsloveit/pen/VmgEBO).
+in work.
 
 ### JavaScript
 We don't need JavaScript ;-)
