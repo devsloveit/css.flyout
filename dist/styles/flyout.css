@@ -1,0 +1,74 @@
+.d-flyout {
+  display: inline-block;
+  position: relative;
+}
+
+.d-flyout input[type="checkbox"] {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.d-flyout input[type="checkbox"]:focus ~ .d-flyout-content {
+  opacity: 1;
+  pointer-events: initial;
+  -webkit-transform: scale3d(1, 1, 1) scale(1);
+          transform: scale3d(1, 1, 1) scale(1);
+}
+
+.d-flyout-trigger {
+  position: relative;
+  z-index: 1;
+}
+
+.d-flyout-trigger > span {
+  display: block;
+  cursor: pointer;
+}
+
+.d-flyout-content {
+  position: absolute;
+  width: 200px;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  outline: 0;
+  -webkit-transform-origin: right bottom;
+          transform-origin: right bottom;
+  -webkit-transform: scale3d(0.9, 0.9, 1) scale(0.9);
+          transform: scale3d(0.9, 0.9, 1) scale(0.9);
+  -webkit-transition: opacity 0.25s ease-in, -webkit-transform 0.25s ease-in;
+  transition: opacity 0.25s ease-in, -webkit-transform 0.25s ease-in;
+  transition: transform 0.25s ease-in, opacity 0.25s ease-in;
+  transition: transform 0.25s ease-in, opacity 0.25s ease-in, -webkit-transform 0.25s ease-in;
+}
+
+[data-fly-to="top-left"] {
+  bottom: 0;
+  right: 0;
+  -webkit-transform-origin: right bottom;
+          transform-origin: right bottom;
+}
+
+[data-fly-to="top-right"] {
+  bottom: 0;
+  left: 0;
+  -webkit-transform-origin: left bottom;
+          transform-origin: left bottom;
+}
+
+[data-fly-to="bottom-left"] {
+  top: 0;
+  right: 0;
+  -webkit-transform-origin: right top;
+          transform-origin: right top;
+}
+
+[data-fly-to="bottom-right"] {
+  top: 0;
+  left: 0;
+  -webkit-transform-origin: left top;
+          transform-origin: left top;
+}

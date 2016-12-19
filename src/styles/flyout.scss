@@ -1,0 +1,86 @@
+@import "settings";
+
+// Wrapper
+.#{$devs-love-it} {
+	display: inline-block;
+	position: relative;
+	input[type="checkbox"] {
+		position: absolute;
+		top: 0;
+		opacity: 0;
+		width: 0;
+		height: 0;
+		&:focus {
+			~ .#{$devs-love-it}-content {
+				opacity: 1;
+				pointer: {
+					events: initial;
+				}
+				transform: scale3d(1, 1, 1) scale(1);
+			}
+		}
+	}
+}
+
+// Trigger
+.#{$devs-love-it}-trigger {
+	position: relative;
+	z: {
+		index: $devsloveit-flyout-trigger-index;
+	}
+	> span {
+		display: block;
+		cursor: pointer;
+	}
+}
+
+// Content
+.#{$devs-love-it}-content {
+	position: absolute;
+	width: $devsloveit-flyout-content-width;
+	z: {
+		index: $devsloveit-flyout-content-index;
+	}
+	pointer: {
+		events: none;
+	}
+	opacity: 0;
+	outline: 0;
+	transform: {
+		origin: right bottom;
+	}
+	transform: scale3d($devsloveit-flyout-content-scale, $devsloveit-flyout-content-scale, 1) scale($devsloveit-flyout-content-scale);
+	transition: transform $devsloveit-flyout-transition-time $devsloveit-flyout-transition-type, opacity $devsloveit-flyout-transition-time $devsloveit-flyout-transition-type;
+}
+
+[data-fly-to="top-left"] {
+	bottom: 0;
+	right: 0;
+	transform: {
+		origin: right bottom;
+	}
+}
+
+[data-fly-to="top-right"] {
+	bottom: 0;
+	left: 0;
+	transform: {
+		origin: left bottom;
+	}
+}
+
+[data-fly-to="bottom-left"] {
+	top: 0;
+	right: 0;
+	transform: {
+		origin: right top;
+	}
+}
+
+[data-fly-to="bottom-right"] {
+	top: 0;
+	left: 0;
+	transform: {
+		origin: left top;
+	}
+}
